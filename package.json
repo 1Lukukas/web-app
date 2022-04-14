@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/1Lukukas/web-app/issues"
   },
-  "homepage": "https://github.com/1Lukukas/web-app#readme"
+  "homepage": "https://github.com/1Lukukas/web-app#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
