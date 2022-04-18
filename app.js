@@ -17,6 +17,6 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 });
 app.use("/static", express.static('./static/'));
-app.listen(3000, function () {
+app.listen(3000, ( ) => {
     console.log("Server is running on localhost3000");
 });
