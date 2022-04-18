@@ -24,6 +24,7 @@ router.post('/', async (req, res) => {
     currency: req.body.currency,
     category: req.body.category,
     description: req.body.description,
+    recordType: req.body.recordType
   })
   try {
     const newRecord = await record.save()
@@ -46,6 +47,9 @@ router.patch('/:id', getRecord, async (req, res) => {
   }
   if (req.body.description != null) {
     res.record.description = req.body.description
+  }
+  if (req.body.recordType != null) {
+    res.record.recordType = req.body.recordType
   }
   try {
     const updatedRecord = await res.record.save()

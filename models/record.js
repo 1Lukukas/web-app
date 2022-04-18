@@ -17,11 +17,18 @@ const recordSchema = new mongoose.Schema({
     type: String,
     required: false
   },
+  recordType: {
+    type: String,
+    enum: ['income','expense'],
+    required: false
+  },
   createdDate: {
     type: Date,
     required: true,
     default: Date.now
-  }
+  },
 })
+
+
 
 module.exports = mongoose.model('Record', recordSchema)

@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { Router } = require('express');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
@@ -10,13 +11,8 @@ db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
 
 app.use(express.json())
-
-// app.set('view engine', 'ejs')
-
-// app.use(express.urlencoded({extended : true}))
-// app.get("/", (req, res) => {
-//     res.render("index.ejs");
-// });
+const recordsRouter = require('./routes/records')
+app.use('/records', recordsRouter)
 
 app.listen(3000, ( ) => {
     console.log("Server is running on localhost3000");
