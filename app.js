@@ -14,6 +14,11 @@ app.use(express.json())
 const recordsRouter = require('./routes/records')
 app.use('/records', recordsRouter)
 
+app.use(express.urlencoded({extended : true}))
+app.get("/", (req, res) => {
+    res.render("index.ejs");
+});
+app.use("/static", express.static('./static/'));
 app.listen(3000, ( ) => {
     console.log("Server is running on localhost3000");
 });

@@ -36,7 +36,7 @@ ul.topnav li.right {float: right;}
 </style>
 </head>
 <body>
-
+<script src="static/index.js"></script>
 <ul class="topnav">
   <li><a class="active" href="#home">Home</a></li>
   <li><a href="#news">News</a></li>
@@ -50,6 +50,24 @@ ul.topnav li.right {float: right;}
   <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
   <h4>Resize the browser window to see the effect.</h4>
 </div>
+
+<form action="#">
+  <label for="recTypes">Record type</label>
+  <select name="record types" id="record">
+    <option value="expense">Expense</option>
+    <option value="income">Income</option>
+  </select><br>
+  <form>
+    <label for="amount">Amount</label><br>
+    <input type="text" id="amount" name="amount"><br>
+  </form>
+  <div>
+  <button
+    onClick="submitResult()">
+    Submit
+  </button>
+  </div>
+</form>
 
 </body>
 </html>
