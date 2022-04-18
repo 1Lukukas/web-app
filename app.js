@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/cringe')
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
 
 const db = mongoose.connection

@@ -2,7 +2,7 @@
 
 Run by using:
 
-```
-node app.js
-```
+npm i express mongoose
+npm i npm i --save-dev dotenv nodemon
+
 Go to localhost:3000
