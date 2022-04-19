@@ -1,7 +1,10 @@
 const express = require('express')
+const record = require('../models/record')
 const router = express.Router()
 const Record = require('../models/record')
+const bodyParser = require('body-parser')
 
+urlencodedParser = bodyParser.urlencoded({extended : false})
 // Getting all
 router.get('/', async (req, res) => {
   try {
@@ -18,7 +21,7 @@ router.get('/:id', getRecord, (req, res) => {
 })
 
 // Creating one
-router.post('/create', async (req, res) => {
+router.post('/create', urlencodedParser, async (req, res) => {
   const record = new Record({
     amount: req.body.amount,
     currency: req.body.currency,
