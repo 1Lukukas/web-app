@@ -2,7 +2,7 @@
 
 Install:
 
-npm i express mongoose body-parser
+npm i express mongoose
 npm i --save-dev dotenv nodemon
 
 or by running ./install.sh on linux
