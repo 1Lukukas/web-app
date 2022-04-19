@@ -1,10 +1,9 @@
 const express = require('express')
-const record = require('../models/record')
 const router = express.Router()
 const Record = require('../models/record')
-const bodyParser = require('body-parser')
 
-urlencodedParser = bodyParser.urlencoded({extended : false})
+
+urlencodedParser = express.urlencoded({extended : false})
 // Getting all
 router.get('/', async (req, res) => {
   try {
