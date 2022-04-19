@@ -18,7 +18,7 @@ router.get('/:id', getRecord, (req, res) => {
 })
 
 // Creating one
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
   const record = new Record({
     amount: req.body.amount,
     currency: req.body.currency,
@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
     description: req.body.description,
     recordType: req.body.recordType
   })
+  console.log("test")
   try {
     const newRecord = await record.save()
     res.status(201).json(newRecord)
