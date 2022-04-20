@@ -66,7 +66,7 @@ router.patch('/:id', getRecord, async (req, res) => {
 router.delete('/:id', getRecord, async (req, res) => {
   try {
     await res.record.remove()
-    res.json({ message: 'Deleted Record' })
+    res.status(204).json({ message: 'Deleted Record' })
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
