@@ -28,7 +28,6 @@ router.post('/create', urlencodedParser, async (req, res) => {
     description: req.body.description,
     recordType: req.body.recordType
   })
-  console.log("test")
   try {
     const newRecord = await record.save()
     res.status(204).json(newRecord)
