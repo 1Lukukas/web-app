@@ -16,15 +16,9 @@ app.use('/records', recordsRouter)
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended : true}))
 
-data = app.get('records/all', (req, res) => {
-}).res;
-
 app.get("/", (req, res) => {
-    res.send(`${data}`);
-});
-// app.get("/", (req, res) => {
-//     res.render("index.ejs", {data : data,}
-// )})
+    res.render("index.ejs")
+})
 app.use("/static", express.static('./static/'));
 app.listen(3000, ( ) => {
     console.log("Server is running on localhost3000");

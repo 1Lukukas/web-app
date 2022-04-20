@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
@@ -29,7 +30,6 @@
 		</style>
 	</head>
 	<body>
-		<script src="static/index.js"></script>
 		<ul class="topnav">
 			<li><a class="active" href="#home">Home</a></li>
 			<li><a href="#news">News</a></li>
@@ -42,6 +42,7 @@
 			<p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
 			<h4>Resize the browser window to see the effect.</h4>
 		</div>
+    <script src="static/index.js"></script>
 		<form action="/records/create" method="post">
 			<label for="recTypes">Record type</label>
 			<select name="recordType" id="record">
@@ -55,6 +56,20 @@
 				<input type="submit" value="OK">
 			</div>
 		</form>
-    <% console.log(data) %> 
+    <p id = "GFG_UP" style =
+        "font-size: 15px; font-weight: bold;">
+    </p>
+    <table class="table table-striped">
+      <tr  class="bg-info">
+          <th>Amount</th>
+          <th>Record Type</th>
+          <th>Creation date</th>
+      </tr>
+  
+      <tbody id="myTable">
+          
+      </tbody>
+  </table>
+    
 	</body>
 </html>

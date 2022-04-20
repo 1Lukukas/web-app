@@ -5,7 +5,7 @@ const Record = require('../models/record')
 
 urlencodedParser = express.urlencoded({extended : false})
 // Getting all
-router.get('/', async (req, res) => {
+router.get('/all', async (req, res) => {
   try {
     const records = await Record.find()
     res.json(records)
@@ -31,7 +31,7 @@ router.post('/create', urlencodedParser, async (req, res) => {
   console.log("test")
   try {
     const newRecord = await record.save()
-    res.status(201).json(newRecord)
+    res.status(204).json(newRecord)
   } catch (err) {
     res.status(400).json({ message: err.message })
   }
