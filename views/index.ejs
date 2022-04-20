@@ -43,7 +43,7 @@
 			<h4>Resize the browser window to see the effect.</h4>
 		</div>
     <script src="static/index.js"></script>
-		<form action="/records/create" method="post">
+		<form action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},10);">
 			<label for="recTypes">Record type</label>
 			<select name="recordType" id="record">
 				<option value="expense">Expense</option>
@@ -54,9 +54,9 @@
 			<input type="text" id="amount" name="amount"><br>
 			<div>
 				<input type="submit" value="OK">
-			</div>
+      </div>
 		</form>
-    <p id = "GFG_UP" style =
+    <p style =
         "font-size: 15px; font-weight: bold;">
     </p>
     <table class="table table-striped">

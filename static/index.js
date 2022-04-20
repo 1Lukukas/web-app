@@ -1,4 +1,4 @@
-async function doEverything() {
+async function fetchAndBuildTable() {
     const response = await fetch('/records/all')
     const data = await response.json()
     buildTable(data)
@@ -20,4 +20,4 @@ function buildTable(data){
     }
 }
 
-doEverything()
+fetchAndBuildTable()
