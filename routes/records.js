@@ -19,6 +19,12 @@ router.get('/:id', getRecord, (req, res) => {
   res.json(res.record)
 })
 
+router.get('/:id/edit', getRecord, (req, res) => {
+  console.log(path.join(__dirname, './views/'))
+  return res.sendFile('editRecord.ejs', {
+    root: path.join(__dirname, './views/') // <= you might have to write '/foldername/
+})
+})
 // Creating one
 router.post('/create', urlencodedParser, async (req, res) => {
   const record = new Record({
