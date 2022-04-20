@@ -32,6 +32,12 @@ app.get("/", (req, res) => {
     res.render("index.ejs", {data : req.data})
 })
 
+app.post("/edit", urlencodedParser, (req, res) => {
+    var _id = req.body._id;
+    console.log(req.body)
+    res.render("editRecord.ejs", {data : req.data})
+})
+
 app.use("/static", express.static('./static/'));
 app.listen(3000, ( ) => {
     console.log("Server is running on localhost3000");

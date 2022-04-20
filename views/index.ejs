@@ -72,8 +72,10 @@ ul.topnav li.right {float: right;}
           <td><%= data[i].amount %></td>
           <td><%= data[i].recordType %></td>
           <td>
-            <form method="GET" action="/records/<%=data[i]._id%>/edit">
-              <button type="submit">Edit record </button>
+            <form method="POST" action="/edit">
+              <div>
+                <input type="hidden" name="_id" value="<%=data[i]._id%>">
+                <button type="submit" name="submit" class="btn">Submit</button>
             </form>
           </td>
           <td>
