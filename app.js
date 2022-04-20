@@ -32,6 +32,10 @@ app.get("/", (req, res) => {
     res.render("index.ejs", {data : req.data})
 })
 
+app.get("/edit", (req, res) => {
+    res.render("editRecord.ejs", {data : req.data})
+})
+
 app.use("/static", express.static('./static/'));
 app.listen(3000, ( ) => {
     console.log("Server is running on localhost3000");
