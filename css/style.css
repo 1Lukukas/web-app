@@ -41,7 +41,12 @@ table {
     border: 3px solid green;
     padding: 10px;
 }
-
+.parallel {
+  display: inline-block;
+}
+.parallel label {
+  display: block;
+}
 @media screen and (max-width: 600px) {
   ul.topnav li.right, 
   ul.topnav li {float: none;}

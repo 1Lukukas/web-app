@@ -8,70 +8,83 @@
 	<body>
 		<!-- <script src="static/index.js"></script> -->
 		<ul class="topnav">
-			<li><a class="active" href="#home">Home</a></li>
-			<li><a href="#news">News</a></li>
-			<li><a href="#contact">Contact</a></li>
-			<li class="right"><a href="#about">About</a></li>
+			<li>
+				<a class="active" href="#home">Home</a>
+			</li>
+			<li>
+				<a href="#news">News</a>
+			</li>
+			<li>
+				<a href="#contact">Contact</a>
+			</li>
+			<li class="right">
+				<a href="#about">About</a>
+			</li>
 		</ul>
 		<div class="content">
-		<div>
-			<h2>Responsive Topnav Example</h2>
-			<p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>
-			<p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
-			<h4>Resize the browser window to see the effect.</h4>
-		</div>
-		<form class="center" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},10);">
-			<label for="recordType">Record type*</label><br>
-			<select name="recordType" id="recordType">
-				<option value="expense">Expense</option>
-				<option value="income">Income</option>
-			</select>
-			<br>
-			<label for="amount">Amount*</label><br>
-			<input type="text" id="amount" name="amount"><br>
-			<label for="currency">Currency</label><br>
-			<select name="currency" id="currency">
-				<option value="" selected></option>
-				<option value="EUR">EUR</option>
-				<option value="GBP">GBP</option>
-				<option value="USD">USD</option>
-				<option value="CAD">CAD</option>
-				<option value="AUD">AUD</option>
-			</select><br>
-			<label for="description">Description</label><br>
-			<input type="text" id="description" name="description"><br>
 			<div>
-				<input type="submit" value="OK">
+				<h2>Responsive Topnav Example</h2>
+				<p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>
+				<p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+				<h4>Resize the browser window to see the effect.</h4>
 			</div>
+			<form class="center" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},10);">
+				<label for="recordType">Record type*</label>
+				<br>
+				<select name="recordType" id="recordType">
+					<option value="expense">Expense</option>
+					<option value="income">Income</option>
+				</select>
+				<br>
+				<div class="parallel">
+					<label for="amount">Amount*</label>
+					<input type="text" id="amount" name="amount">
+				</div>
+				<div class="parallel">
+					<label for="currency">Currency</label>
+					<select name="currency" id="currency">
+						<option value="" selected></option>
+						<option value="EUR">EUR</option>
+						<option value="GBP">GBP</option>
+						<option value="USD">USD</option>
+						<option value="CAD">CAD</option>
+						<option value="AUD">AUD</option>
+					</select>
+				</div>
+				<br>
+				<label for="description">Description</label>
+				<br>
+				<textarea type="submit" id="description" name="description"></textarea>
+				<br>
+				<div>
+					<input type="submit" value="OK">
+				</div>
+		</div>
 		</form>
 		<table>
 			<tr>
 				<th>Amount</th>
 				<th>Record type</th>
 				<th colspan="2">Actions</th>
-			</tr>
-			<% for (var i = 0; i < data.length; i++) { %>
-			<tr>
-				<td><%= data[i].amount %></td>
-				<td><%= data[i].recordType %></td>
+			</tr><% for (var i = 0; i < data.length; i++) { %> <tr>
+				<td><%= data[i].amount %> </td>
+				<td><%= data[i].recordType %> </td>
 				<td>
 					<form method="GET" action="/records/<%=data[i]._id%>/edit">
-						
-							<button type="submit" name="submit" class="btn"> Edit </button>
+						<button type="submit" name="submit" class="btn"> Edit </button>
 					</form>
 				</td>
 				<td>
-				<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},10);">
-				<button type="submit"> Delete </button>
-				</form>
+					<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},10);">
+						<button type="submit"> Delete </button>
+					</form>
 				</td>
 				<td>
-				<form method="GET" action="/records/<%=data[i]._id%>/details">
-				<button type="submit"> Details </button>
-				</form>
+					<form method="GET" action="/records/<%=data[i]._id%>/details">
+						<button type="submit"> Details </button>
+					</form>
 				</td>
-			</tr>
-			<% } %>
+			</tr><% } %>
 		</table>
 		</div>
 	</body>
