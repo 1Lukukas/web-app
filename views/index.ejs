@@ -27,7 +27,8 @@
 				<p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
 				<h4>Resize the browser window to see the effect.</h4>
 			</div>
-			<form class="center" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},30);">
+			<script src="static/index.js"></script>
+			<form class="center" name="myForm" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},30) & validateForm()">
 				<label for="recordType">Record type*</label>
 				<br>
 				<select name="recordType" id="recordType">
@@ -79,8 +80,9 @@
 					</form>
 				</td> -->
 				<td>
+					<button onclick="confirmDelete()">Delete</button>
 					<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},30);">
-						<button type="submit"> Delete </button>
+						<button hidden id="submitDelete" type="submit"></button>
 					</form>
 				</td>
 				<td>

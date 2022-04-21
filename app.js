@@ -36,6 +36,7 @@ app.use(getAllRecords)
 path = require('path')
 
 app.use('/css', express.static(path.join(__dirname, '/css')));
+app.use("/static", express.static('./static/'));
 
 app.get("/", (req, res) => {
     res.render("index.ejs", {data : req.data})
