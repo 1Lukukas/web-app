@@ -4,6 +4,7 @@ const Record = require('../models/record')
 
 path = require('path')
 router.use('/css', express.static(path.join(__dirname, '/css')))
+router.use('/static', express.static(path.join(__dirname, '/static')))
 
 urlencodedParser = express.urlencoded({extended : false})
 // Getting all
@@ -80,7 +81,7 @@ router.patch('/:id', getRecord, async (req, res) => {
 router.delete('/:id', getRecord, async (req, res) => {
   try {
     await res.record.remove()
-    res.status(204).json({ message: 'Deleted Record' })
+    res.redirect("..")
   } catch (err) {
     res.status(500).json({ message: err.message })
   }

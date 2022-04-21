@@ -3,14 +3,11 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="/css/style.css" /></link>
-		<script src="static/index.js"></script>
+		<script src="/static/index.js"></script>
 	</head>
 	<body>
 		<ul class="topnav">
 			<li><a class="active" href="/">Home</a></li>
-			<li><a href="#news">News</a></li>
-			<li><a href="#contact">Contact</a></li>
-			<li class="right"><a href="#about">About</a></li>
 		</ul>
 		<div class="content">
 			<div>
@@ -52,17 +49,18 @@
 			<form method="GET" action="/records/<%=data._id%>/edit">
 				<button type="submit" name="submit" class="btn"> Edit </button>
 			</form>
-				<script>
-					function confirmDelete() {
-						if (confirm("Are you sure you want to delete this record?")) {
-							document.getElementById("submitDelete").click()
-						} 
-					}
-				</script>
-				<button onclick="console.log('lol') & confirmDelete()">Delete</button>
-				<form method="POST" action="/records/<%=data._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},30);">
-					<button hidden id="submitDelete" type="submit"></button>
-				</form>
+			<br>
+			<script>
+				function confirmDelete() {
+					if (confirm("Are you sure you want to delete this record?")) {
+						document.getElementById("submitDelete").click()
+					} 
+				}
+			</script>
+			<button onclick="console.log('lol') & confirmDelete()">Delete</button>
+			<form method="POST" action="/records/<%=data._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},30);">
+				<button hidden id="submitDelete" type="submit"></button>
+			</form>
 		</div>
 	</body>
 </html>

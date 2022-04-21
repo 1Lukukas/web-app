@@ -8,9 +8,6 @@
 	<body>
 		<ul class="topnav">
 			<li><a class="active" href="/">Home</a></li>
-			<li><a href="#news">News</a></li>
-			<li><a href="#contact">Contact</a></li>
-			<li class="right"><a href="#about">About</a></li>
 		</ul>
 		<div class="content">
 			<div>
@@ -53,10 +50,12 @@
 				<div>
 					<input type="submit" value="Save">
 				</div>
-				</form>
+			</form>
+			<div>
 				<form method="GET" action="/records/<%=data._id%>/details">
 					<button type="submit">Cancel</button>
 				</form>
+			</div>
 		</div>
 	</body>
 </html>
