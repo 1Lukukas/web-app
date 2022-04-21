@@ -23,10 +23,9 @@ const recordSchema = new mongoose.Schema({
     enum: ['income','expense'],
     required: false
   },
-  createdDate: {
+  recordDate: {
     type: Date,
-    required: true,
-    default: Date.now
+    required: false
   },
 })
 

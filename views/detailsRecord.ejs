@@ -14,21 +14,44 @@
 		</ul>
 		<div class="content">
 			<div>
-				<h2>EDIT</h2>
+				<h2>Details</h2>
 			</div>
 
-			
-				<label for="recTypes">Record type</label><br>
-				<select disabled name="recordType" id="record">
-					<option value="expense" <%= data.recordType ==='expense' ? 'selected' : '' %>>Expense</option>
-					<option value="income" <%= data.recordType ==='income' ? 'selected' : '' %>>Income</option>
+			<label for="recTypes">Record type</label><br>
+			<select disabled name="recordType" id="record">
+				<option value="expense" <%= data.recordType ==='expense' ? 'selected' : '' %>>Expense</option>
+				<option value="income" <%= data.recordType ==='income' ? 'selected' : '' %>>Income</option>
+			</select>
+			<br>
+			<div class="parallel">
+				<label for="amount">Amount</label>
+				<input disabled type="text" id="amount" name="amount" value="<%= data.amount %>">
+			</div>
+			<div class="parallel">
+				<label for="currency">Currency</label>
+				<select disabled name="currency" id="currency">
+					<option value="" <%= data.currency ==='' ? 'selected' : '' %>></option>
+					<option value="EUR" <%= data.currency ==='EUR' ? 'selected' : '' %>>EUR</option>
+					<option value="GBP" <%= data.currency ==='GBP' ? 'selected' : '' %>>GBP</option>
+					<option value="USD" <%= data.currency ==='USD' ? 'selected' : '' %>>USD</option>
+					<option value="CAD" <%= data.currency ==='CAD' ? 'selected' : '' %>>CAD</option>
+					<option value="AUD" <%= data.currency ==='AUD' ? 'selected' : '' %>>AUD</option>
 				</select>
+			</div>
+			<br>
+			<label for="description">Description</label>
+			<br>
+			<textarea disabled type="text" id="description" name="description"><%= data.description %></textarea>
+			<br>
+			<div>
+				<label>Record date</label>
 				<br>
-				<label for="amount">Amount</label><br>
-				<input disabled type="text" id="amount" name="amount" value="<%= data.amount %>"><br>
-					<form method="GET" action="/records/<%=data._id%>/edit">
-						<button type="submit" name="submit" class="btn"> Edit </button>
-					</form>
+				<textarea disabled type="date" id="recordDate" name="recordDate"><%= data.recordDate %></textarea>
+			</div>
+			<br>
+			<form method="GET" action="/records/<%=data._id%>/edit">
+				<button type="submit" name="submit" class="btn"> Edit </button>
+			</form>
 		</div>
 	</body>
 </html>

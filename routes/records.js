@@ -32,7 +32,8 @@ router.post('/create', urlencodedParser, async (req, res) => {
     currency: req.body.currency,
     category: req.body.category,
     description: req.body.description,
-    recordType: req.body.recordType
+    recordType: req.body.recordType,
+    recordDate: req.body.recordDate
   })
   try {
     const newRecord = await record.save()
@@ -63,6 +64,9 @@ router.patch('/:id', getRecord, async (req, res) => {
   }
   if (req.body.recordType != null) {
     res.record.recordType = req.body.recordType
+  }
+  if (req.body.recordDate != null) {
+    res.record.recordDate = req.body.recordDate
   }
   try {
     const updatedRecord = await res.record.save()

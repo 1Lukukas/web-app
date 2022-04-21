@@ -57,7 +57,7 @@
 				<br>
 				<div>
 					<label>Record date</label>
-					<input type="date" id="start" name="record date">
+					<input type="date" id="recordDate" name="recordDate">
 				</div>
 				<br>
 				<div>
@@ -73,11 +73,11 @@
 			</tr><% for (var i = 0; i < data.length; i++) { %> <tr>
 				<td><%= data[i].amount %> </td>
 				<td><%= data[i].recordType %> </td>
-				<td>
-					<form method="GET" action="/records/<%=data[i]._id%>/edit">
+				<!-- <td>
+					<form method="GET" action="/records/</%=data[i]._id%>/edit">
 						<button type="submit" name="submit" class="btn"> Edit </button>
 					</form>
-				</td>
+				</td> -->
 				<td>
 					<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},30);">
 						<button type="submit"> Delete </button>
