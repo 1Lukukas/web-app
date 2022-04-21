@@ -19,12 +19,6 @@ router.get('/:id', getRecord, (req, res) => {
   res.json(res.record)
 })
 
-router.get('/:id/edit', getRecord, (req, res) => {
-  console.log(path.join(__dirname, './views/'))
-  return res.sendFile('editRecord.ejs', {
-    root: path.join(__dirname, './views/') // <= you might have to write '/foldername/
-})
-})
 // Creating one
 router.post('/create', urlencodedParser, async (req, res) => {
   const record = new Record({
@@ -40,6 +34,11 @@ router.post('/create', urlencodedParser, async (req, res) => {
   } catch (err) {
     res.status(400).json({ message: err.message })
   }
+})
+
+// Pass id to edit record page
+router.get("/:id/edit", getRecord, async(req, res) => {
+  res.render("editRecord.ejs", {data : res.record})
 })
 
 // Updating One
@@ -61,7 +60,7 @@ router.patch('/:id', getRecord, async (req, res) => {
   }
   try {
     const updatedRecord = await res.record.save()
-    res.json(updatedRecord)
+    res.status(204).json(updatedRecord)
   } catch (err) {
     res.status(400).json({ message: err.message })
   }

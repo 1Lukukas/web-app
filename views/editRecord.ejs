@@ -38,17 +38,30 @@ ul.topnav li.right {float: right;}
   <body>
     <!-- <script src="static/index.js"></script> -->
     <ul class="topnav">
-      <li><a class="active" href="#home">Home</a></li>
+      <li><a class="active" href="/">Home</a></li>
       <li><a href="#news">News</a></li>
       <li><a href="#contact">Contact</a></li>
       <li class="right"><a href="#about">About</a></li>
     </ul>
 
     <div style="padding:0 16px;">
-      <h2>Responsive <%=data._id%> Topnav Example</h2>
+      <h2>EDIT <%=data._id%></h2>
       <p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>
       <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
       <h4>Resize the browser window to see the effect.</h4>
     </div>
+
+    <form method="POST" action="/records/<%= data._id %>?_method=PATCH">
+      <label for="recTypes">Record type</label>
+      <select name="recordType" id="record">
+        <option value="expense" <%= data.recordType ==='expense' ? 'selected' : '' %>>Expense</option>
+        <option value="income" <%= data.recordType ==='income' ? 'selected' : '' %>>Income</option>
+      </select><br>
+        <label for="amount">Amount</label><br>
+        <input type="text" id="amount" name="amount" value="<%= data.amount %> "><br>
+      <div>
+        <input type="submit" value="OK">
+      </div>
+    </form>
   </body>
 </html>
