@@ -21,14 +21,24 @@
 			<h4>Resize the browser window to see the effect.</h4>
 		</div>
 		<form class="center" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},10);">
-			<label for="recTypes">Record type</label><br>
-			<select name="recordType" id="record">
+			<label for="recordType">Record type*</label><br>
+			<select name="recordType" id="recordType">
 				<option value="expense">Expense</option>
 				<option value="income">Income</option>
 			</select>
 			<br>
-			<label for="amount">Amount</label><br>
+			<label for="amount">Amount*</label><br>
 			<input type="text" id="amount" name="amount"><br>
+			<label for="currency">Currency</label><br>
+			<select name="currency" id="currency">
+				<option value="EUR">EUR</option>
+				<option value="GBP">GBP</option>
+				<option value="USD">USD</option>
+				<option value="CAD">CAD</option>
+				<option value="AUD">AUD</option>
+			</select><br>
+			<label for="description">Description</label><br>
+			<input type="text" id="description" name="description"><br>
 			<div>
 				<input type="submit" value="OK">
 			</div>
@@ -45,13 +55,18 @@
 				<td><%= data[i].recordType %></td>
 				<td>
 					<form method="GET" action="/records/<%=data[i]._id%>/edit">
-						<div>
+						
 							<button type="submit" name="submit" class="btn"> Edit </button>
 					</form>
 				</td>
 				<td>
 				<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},10);">
 				<button type="submit"> Delete </button>
+				</form>
+				</td>
+				<td>
+				<form method="GET" action="/records/<%=data[i]._id%>/details">
+				<button type="submit"> Details </button>
 				</form>
 				</td>
 			</tr>

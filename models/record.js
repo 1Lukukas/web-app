@@ -7,6 +7,7 @@ const recordSchema = new mongoose.Schema({
   },
   currency: {
     type: String,
+    enum: ['USD','GBP', 'EUR', 'CAD', 'AUD'],
     required: false
   },
   category: {

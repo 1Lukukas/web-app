@@ -21,6 +21,10 @@ router.get('/:id', getRecord, (req, res) => {
   res.json(res.record)
 })
 
+router.get("/:id/details", getRecord, async(req, res) => {
+  res.render("detailsRecord.ejs", {data : res.record})
+})
+
 // Creating one
 router.post('/create', urlencodedParser, async (req, res) => {
   const record = new Record({
@@ -62,7 +66,7 @@ router.patch('/:id', getRecord, async (req, res) => {
   }
   try {
     const updatedRecord = await res.record.save()
-    res.status(204).json(updatedRecord)
+    res.redirect('../')
   } catch (err) {
     res.status(400).json({ message: err.message })
   }

@@ -17,19 +17,18 @@
 				<h2>EDIT</h2>
 			</div>
 
-			<form method="POST" action="/records/<%= data._id %>?_method=PATCH">
+			
 				<label for="recTypes">Record type</label><br>
-				<select name="recordType" id="record">
+				<select disabled name="recordType" id="record">
 					<option value="expense" <%= data.recordType ==='expense' ? 'selected' : '' %>>Expense</option>
 					<option value="income" <%= data.recordType ==='income' ? 'selected' : '' %>>Income</option>
 				</select>
 				<br>
 				<label for="amount">Amount</label><br>
-				<input type="text" id="amount" name="amount" value="<%= data.amount %> "><br>
-				<div>
-					<input type="submit" value="OK">
-				</div>
-			</form>
+				<input disabled type="text" id="amount" name="amount" value="<%= data.amount %> "><br>
+					<form method="GET" action="/records/<%=data._id%>/edit">
+						<button type="submit" name="submit" class="btn"> Edit </button>
+					</form>
 		</div>
 	</body>
 </html>
