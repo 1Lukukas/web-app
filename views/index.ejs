@@ -1,89 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {margin: 0;}
-
-ul.topnav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-ul.topnav li {float: left;}
-
-ul.topnav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul.topnav li a:hover:not(.active) {background-color: #111;}
-
-ul.topnav li a.active {background-color: #04AA6D;}
-
-ul.topnav li.right {float: right;}
-
-@media screen and (max-width: 600px) {
-  ul.topnav li.right, 
-  ul.topnav li {float: none;}
-}
-</style>
-</head>
-  <body>
-    <!-- <script src="static/index.js"></script> -->
-    <ul class="topnav">
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li class="right"><a href="#about">About</a></li>
-    </ul>
-
-    <div style="padding:0 16px;">
-      <h2>Responsive Topnav Example</h2>
-      <p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>
-      <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
-      <h4>Resize the browser window to see the effect.</h4>
-    </div>
-
-    <form action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},10);">
-      <label for="recTypes">Record type</label>
-      <select name="recordType" id="record">
-        <option value="expense">Expense</option>
-        <option value="income">Income</option>
-      </select><br>
-        <label for="amount">Amount</label><br>
-        <input type="text" id="amount" name="amount"><br>
-      <div>
-        <input type="submit" value="OK">
-      </div>
-    </form>
-    <table>
-      <tr>
-        <th>Amount</th><th>Record type</th>
-      </tr>
-      <% for (var i = 0; i < data.length; i++) { %>
-        <tr>
-          <td><%= data[i].amount %></td>
-          <td><%= data[i].recordType %></td>
-          <td>
-            <form method="GET" action="/records/<%=data[i]._id%>/edit">
-              <div>
-                <button type="submit" name="submit" class="btn">Submit</button>
-            </form>
-          </td>
-          <td>
-            <form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},10);">
-              <button type="submit">Delete record</button>
-            </form>
-          </td>
-        </tr>    
-      <% } %>
-    </table>
-  </body>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<link>
+	</head>
+	<body>
+		<!-- <script src="static/index.js"></script> -->
+		<ul class="topnav">
+			<li><a class="active" href="#home">Home</a></li>
+			<li><a href="#news">News</a></li>
+			<li><a href="#contact">Contact</a></li>
+			<li class="right"><a href="#about">About</a></li>
+		</ul>
+		<div class="content">
+		<div>
+			<h2>Responsive Topnav Example</h2>
+			<p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>
+			<p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+			<h4>Resize the browser window to see the effect.</h4>
+		</div>
+		<form class="center" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},10);">
+			<label for="recTypes">Record type</label><br>
+			<select name="recordType" id="record">
+				<option value="expense">Expense</option>
+				<option value="income">Income</option>
+			</select>
+			<br>
+			<label for="amount">Amount</label><br>
+			<input type="text" id="amount" name="amount"><br>
+			<div>
+				<input type="submit" value="OK">
+			</div>
+		</form>
+		<table>
+			<tr>
+				<th>Amount</th>
+				<th>Record type</th>
+				<th colspan="2">Actions</th>
+			</tr>
+			<% for (var i = 0; i < data.length; i++) { %>
+			<tr>
+				<td><%= data[i].amount %></td>
+				<td><%= data[i].recordType %></td>
+				<td>
+					<form method="GET" action="/records/<%=data[i]._id%>/edit">
+						<div>
+							<button type="submit" name="submit" class="btn"> Edit </button>
+					</form>
+				</td>
+				<td>
+				<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},10);">
+				<button type="submit"> Delete </button>
+				</form>
+				</td>
+			</tr>
+			<% } %>
+		</table>
+		</div>
+	</body>
 </html>

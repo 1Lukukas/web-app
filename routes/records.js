@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Record = require('../models/record')
 
+path = require('path')
+router.use('/css', express.static(path.join(__dirname, '/css')))
 
 urlencodedParser = express.urlencoded({extended : false})
 // Getting all

@@ -19,7 +19,6 @@ const recordsRouter = require('./routes/records')
 app.use('/records', recordsRouter)
 app.set('view engine', 'ejs');
 
-
 const getAllRecords = async (req, res, next) => {
     axios = require('axios');
     response = await axios.get('http://localhost:3000/records/all')
@@ -28,15 +27,13 @@ const getAllRecords = async (req, res, next) => {
 }
 app.use(getAllRecords)
 
+path = require('path')
+
+app.use('/css', express.static(path.join(__dirname, '/css')));
+
 app.get("/", (req, res) => {
     res.render("index.ejs", {data : req.data})
 })
-
-// app.post("/edit", urlencodedParser, (req, res) => {
-//     var _id = req.body._id;
-//     console.log(req.body)
-//     res.render("editRecord.ejs", {data : req.body})
-// })
 
 app.use("/static", express.static('./static/'));
 app.listen(3000, ( ) => {
