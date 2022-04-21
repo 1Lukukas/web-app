@@ -24,8 +24,31 @@
 					<option value="income" <%= data.recordType ==='income' ? 'selected' : '' %>>Income</option>
 				</select>
 				<br>
-				<label for="amount">Amount</label><br>
-				<input type="text" id="amount" name="amount" value="<%= data.amount %>"><br>
+				<div class="parallel">
+					<label for="amount">Amount</label>
+					<input type="text" id="amount" name="amount" value="<%= data.amount %>">
+				</div>
+				<div class="parallel">
+					<label for="currency">Currency</label>
+					<select name="currency" id="currency">
+						<option value="" <%= data.currency ==='' ? 'selected' : '' %>></option>
+						<option value="EUR" <%= data.currency ==='EUR' ? 'selected' : '' %>>EUR</option>
+						<option value="GBP" <%= data.currency ==='GBP' ? 'selected' : '' %>>GBP</option>
+						<option value="USD" <%= data.currency ==='USD' ? 'selected' : '' %>>USD</option>
+						<option value="CAD" <%= data.currency ==='CAD' ? 'selected' : '' %>>CAD</option>
+						<option value="AUD" <%= data.currency ==='AUD' ? 'selected' : '' %>>AUD</option>
+					</select>
+				</div>
+				<br>
+				<label for="description">Description</label>
+				<br>
+				<textarea type="text" id="description" name="description"><%= data.description %></textarea>
+				<br>
+				<div>
+					<label>Record date</label>
+					<input type="date" id="start" name="record date">
+				</div>
+				<br>
 				<div>
 					<input type="submit" value="OK">
 				</div>

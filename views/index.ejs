@@ -6,7 +6,6 @@
 		<link>
 	</head>
 	<body>
-		<!-- <script src="static/index.js"></script> -->
 		<ul class="topnav">
 			<li>
 				<a class="active" href="#home">Home</a>
@@ -28,7 +27,7 @@
 				<p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
 				<h4>Resize the browser window to see the effect.</h4>
 			</div>
-			<form class="center" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},10);">
+			<form class="center" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},30);">
 				<label for="recordType">Record type*</label>
 				<br>
 				<select name="recordType" id="recordType">
@@ -54,13 +53,18 @@
 				<br>
 				<label for="description">Description</label>
 				<br>
-				<textarea type="submit" id="description" name="description"></textarea>
+				<textarea type="input" id="description" name="description"></textarea>
+				<br>
+				<div>
+					<label>Record date</label>
+					<input type="date" id="start" name="record date">
+				</div>
 				<br>
 				<div>
 					<input type="submit" value="OK">
 				</div>
+			</form>
 		</div>
-		</form>
 		<table>
 			<tr>
 				<th>Amount</th>
@@ -75,7 +79,7 @@
 					</form>
 				</td>
 				<td>
-					<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},10);">
+					<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},30);">
 						<button type="submit"> Delete </button>
 					</form>
 				</td>
