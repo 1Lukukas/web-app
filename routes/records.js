@@ -70,7 +70,7 @@ router.patch('/:id', getRecord, async (req, res) => {
   }
   try {
     const updatedRecord = await res.record.save()
-    res.redirect('../')
+    res.redirect('/records/' + req.params.id + '/details')
   } catch (err) {
     res.status(400).json({ message: err.message })
   }
