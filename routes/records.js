@@ -19,7 +19,7 @@ router.get('/all', async (req, res) => {
 
 // Getting One
 router.get('/:id', getRecord, (req, res) => {
-  res.json(res.record)
+  res.status(204).json(res.record)
 })
 
 router.get("/:id/details", getRecord, async(req, res) => {
@@ -71,7 +71,7 @@ router.patch('/:id', getRecord, async (req, res) => {
   }
   try {
     const updatedRecord = await res.record.save()
-    res.redirect('/records/' + req.params.id + '/details')
+    res.status(204).json(updatedRecord)
   } catch (err) {
     res.status(400).json({ message: err.message })
   }
@@ -81,7 +81,7 @@ router.patch('/:id', getRecord, async (req, res) => {
 router.delete('/:id', getRecord, async (req, res) => {
   try {
     await res.record.remove()
-    res.redirect("..")
+    res.message(`Record ${res.record._id} removed successfully`)
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
