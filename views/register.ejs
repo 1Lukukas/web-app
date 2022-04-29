@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<link>
+	</head>
+	<body>
+		<ul class="topnav">
+			<li><a class="active" href="/home">Home</a></li>
+		</ul>
+		<div class="content">
+			<div>
+				<h2>REGISTRATION</h2>
+			</div>
+            <button onclick="validateForm()">Register</button>
+			<form name="registerForm" method="POST" action="/users/create">
+				<div class="parallel">
+					<label for="email">Email</label>
+					<input type="text" id="email" name="email">
+				</div>
+                <div class="parallel">
+				    <label for="username">Username</label>
+				    <input type="text" id="username" name="username">
+                </div>
+				<br>
+                <div class="parallel">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password">
+				</div>
+                <div class="parallel">
+					<label for="repassword">Repeat password</label>
+					<input type="password" id="repassword" name="repassword">
+				</div>
+				<br>
+                <div>
+                    <button hidden id="submitRegister" type="submit"></button>
+				</div>
+			</form>
+		</div>
+	</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
+    <script src="static/register.js"></script>
+</html>
