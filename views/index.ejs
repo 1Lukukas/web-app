@@ -15,7 +15,6 @@
 			<div class="center">
 				<h2>Expense Logger</h2>
 			</div>
-			<script src="static/index.js"></script>
 			<form class="center" name="myForm" action="/records/create" method="post" onsubmit="setTimeout(function(){window.location.reload();},30) & validateForm()">
 				<label for="recordType">Record type*</label>
 				<br>
@@ -82,5 +81,6 @@
 			</tr><% } %>
 		</table>
 		</div>
+		<script src="static/index.js"></script>
 	</body>
 </html>
