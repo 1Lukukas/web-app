@@ -73,8 +73,7 @@
 				</td>
 				<td>
 					<button onclick="confirmDelete()">Delete</button>
-					<form method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},30);">
-						<button hidden id="submitDelete" type="submit"></button>
+					<form id="deleteForm" method="POST" action="/records/<%=data[i]._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},30);">
 					</form>
 				</td>
 				

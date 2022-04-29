@@ -14,7 +14,7 @@
 				<h2>REGISTRATION</h2>
 			</div>
             <button onclick="validateForm()">Register</button>
-			<form name="registerForm" method="POST" action="/users/create">
+			<form id="registerForm" method="POST" action="/users/create">
 				<div class="parallel">
 					<label for="email">Email</label>
 					<input type="text" id="email" name="email">
@@ -32,10 +32,7 @@
 					<label for="repassword">Repeat password</label>
 					<input type="password" id="repassword" name="repassword">
 				</div>
-				<br>
-                <div>
-                    <button hidden id="submitRegister" type="submit"></button>
-				</div>
+                <input type="checkbox" onclick="showPassword()">Show Password
 			</form>
 		</div>
 	</body>

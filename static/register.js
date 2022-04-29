@@ -36,10 +36,22 @@ function validatePassword() {
     pass = document.getElementById("password")
     repass = document.getElementById("repassword")
     if(pass.value === repass.value) {
-        document.getElementById("submitRegister").click()
+        document.getElementById("registerForm").submit()
         alert("Registration successful!")
         location.href="https://localhost:3000/"
     } else {
         alert("Passwords do not match")
     }
+}
+
+function showPassword() {
+    var x = document.getElementById("password");
+    var y = document.getElementById("repassword");
+  if (x.type === "password") {
+    x.type = "text";
+    y.type = "text";
+  } else {
+    x.type = "password";
+    y.type = "password";
+  }
 }
