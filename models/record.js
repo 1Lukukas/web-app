@@ -27,8 +27,7 @@ const recordSchema = new mongoose.Schema({
     type: Date,
     required: false
   },
+  username: { type: String, ref: 'User' }
 })
-
-
 
 module.exports = mongoose.model('Record', recordSchema)
