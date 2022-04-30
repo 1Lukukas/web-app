@@ -1,13 +1,28 @@
 const express = require('express')
 const router = express.Router()
 const Record = require('../models/record')
+const User = require('../models/user')
+const { authenticateToken, authenticationHeader } = require('./users')
 
 path = require('path')
 router.use('/css', express.static(path.join(__dirname, '/css')))
 router.use('/static', express.static(path.join(__dirname, '/static')))
 
 urlencodedParser = express.urlencoded({extended : false})
+const cookieParser = require('cookie-parser');
+router.use(cookieParser());
 // Getting all
+router.get('/all2', authenticateToken, async (req, res) => {
+  try {
+    let records = await Record.find()
+    records = records.filter((record) => {
+      return record.username == req.user.username})
+    res.json(records)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
 router.get('/all', async (req, res) => {
   try {
     const records = await Record.find()
@@ -38,6 +53,32 @@ router.post('/create', urlencodedParser, async (req, res) => {
   })
   try {
     const newRecord = await record.save()
+    res.status(204).json(newRecord)
+  } catch (err) {
+    res.status(400).json({ message: err.message })
+  }
+})
+
+router.post('/create2', urlencodedParser, authenticateToken, async (req, res) => {
+  //console.log(req.user)
+    const user = await User.find({username: req.user.username})
+    const record = new Record({
+    amount: req.body.amount,
+    currency: req.body.currency,
+    category: req.body.category,
+    description: req.body.description,
+    recordType: req.body.recordType,
+    recordDate: req.body.recordDate,
+    username: user[0].username
+  });
+
+  try {
+    newRecord = await record.save()
+    temp = user[0].records
+    temp.push(newRecord)
+    user[0].records = temp
+    await user[0].save()
+
     res.status(204).json(newRecord)
   } catch (err) {
     res.status(400).json({ message: err.message })

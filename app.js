@@ -14,26 +14,19 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
-
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 app.use(methodOverride('X-HTTP-Method-Override'))
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use(methodOverride('_method'))
 
-const usersRouter = require('./routes/users')
+const usersRouter = require('./routes/users').router
 app.use('/users', usersRouter)
 
 const recordsRouter = require('./routes/records')
 app.use('/records', recordsRouter)
 app.set('view engine', 'ejs');
-
-const getAllRecords = async (req, res, next) => {
-    axios = require('axios');
-    response = await axios.get('https://localhost:3000/records/all')
-    req.data = response.data
-    next()
-}
-app.use(getAllRecords)
 
 path = require('path')
 
@@ -47,7 +40,13 @@ app.get("/", (req, res) => {
     //res.render("index.ejs", {data : req.data})
     res.redirect("/home")
 })
+app.get("/login", (req, res) =>{
+    res.render("login.ejs")
+  })
 app.get("/home", (req, res) => {
     res.render("home.ejs")
+})
+app.get("/lol", (req, res) => {
+    res.render("index.ejs", {data : req.data})
 })
 server.listen(3000, () => { console.log('listening on 3000') });

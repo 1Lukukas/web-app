@@ -38,7 +38,7 @@ function validatePassword() {
     if(pass.value === repass.value) {
         document.getElementById("registerForm").submit()
         alert("Registration successful!")
-        location.href="https://localhost:3000/"
+        //location.href="https://localhost:3000/"
     } else {
         alert("Passwords do not match")
     }
