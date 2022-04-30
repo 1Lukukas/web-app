@@ -6,14 +6,16 @@
 		<link>
 	</head>
 	<body>
-		<ul class="topnav">
-			<li>
-				<a class="active" href="/">Home</a>
-			</li>
-			<li class="right">
-				<a style="color: peru;" href="/users/details" >User</a>
-			</li>
-		</ul>
+		<div class="topnav">
+			<a class="active" href="/">Home</a>
+			<div class="dropdown right">
+				<button class="dropbtn" type ="button">Dropdown</button>
+				<div class="dropdown-content">
+					<a style="color: peru;" href="/users/details" >User</a>
+					<a onclick="logout()" href="/">Logout</a>
+				</div>
+			</div>
+		</div>
 		<div class="content">
 			<div class="center">
 				<h2>Expense Logger</h2>

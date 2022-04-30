@@ -26,3 +26,7 @@ async function create(){
       console.log(err)
     }
 }
+
+async function logout(){
+  localStorage.removeItem("access_token");
+}
