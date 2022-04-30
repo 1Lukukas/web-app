@@ -13,10 +13,21 @@
 			<div>
 				<h2>LOGIN</h2>
 			</div>
+			<label>Login using:</label>
+			<input type="radio" name="select" id="usernameOption" checked>
+			<div class="parallel">
+				<label for="usernameOption">Username</label>
+			</div>
+			<input type="radio" name="select" id="emailOption">
+			<div class="parallel">
+				<label for="emailOption"> Email</label>
+			</div>
+
 			<form id="loginForm" method="GET" action="/users/login">
 				<div class="parallel">
-					<label for="username">Email</label>
-					<input type="text" id="username" name="username">
+					<br>
+					<label id="loginLabel" for="login">Username</label>
+					<input type="text" id="login" name="login">
 				</div>
 				<br>
                 <div class="parallel">
@@ -26,7 +37,8 @@
                 <!-- <input type="checkbox" onclick="showPassword()">Show Password -->
 			</form>
 			<br>
-			<button onclick="validateForm()">LOGIN</button>
+			<button onclick="login()">LOGIN</button>
+			
 		</div>
 	</body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
