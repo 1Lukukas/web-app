@@ -2,7 +2,7 @@
 
 Install:
 
-npm i express mongoose jsdom jquery axios method-override
+npm i express mongoose jsdom jquery axios method-override jsonwebtoken cookie-parser
 npm i --save-dev dotenv nodemon
 
 or by running ./install.sh on linux
