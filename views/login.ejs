@@ -13,9 +13,10 @@
 			<div>
 				<h2>LOGIN</h2>
 			</div>
+			
 			<form id="loginForm" method="GET" action="/users/login">
 				<div class="parallel">
-					<label for="username">Email</label>
+					<label for="username">Username</label>
 					<input type="text" id="username" name="username">
 				</div>
 				<br>
@@ -26,7 +27,8 @@
                 <!-- <input type="checkbox" onclick="showPassword()">Show Password -->
 			</form>
 			<br>
-			<button onclick="validateForm()">LOGIN</button>
+			<button onclick="login()">LOGIN</button>
+			
 		</div>
 	</body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
