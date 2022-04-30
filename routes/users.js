@@ -79,6 +79,11 @@ router.post('/login', (req, res) => {
   res.json({ accessToken: accessToken/* , refreshToken: refreshToken  */})
 })
 
+router.get("/me", authenticateToken, async (req, res) =>{
+  const user = await User.find({username: req.user.username})
+  res.send(user[0])
+})
+
 function generateAccessToken(user) {
   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET/* , { expiresIn: '15s' } */)
 }
@@ -89,22 +94,16 @@ function authenticateToken(req, res, next) {
   if (token == null) return res.sendStatus(401)
 
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    console.log(err)
-    if (err) return res.sendStatus(403)
+    if (err) {
+      console.log(err)
+      return res.sendStatus(403)
+    }
     req.user = user
     next()
   })
 }
 
-function authenticationHeader(res, next){
-  lol = window.localStorage.getItem('access_token');
-  console.log(lol)
-  res.headers['authorization']
-  next()
-}
-
 module.exports = {
   router,
   authenticateToken,
-  authenticationHeader
   }

@@ -25,13 +25,4 @@ async function create(){
     catch(err){
       console.log(err)
     }
-  }
-
-  const getAllRecords = async () => {
-    axios = require('axios');
-    response = await axios.get('https://localhost:3000/records/all', {headers:{
-        'Authorization': "Bearer " + window.localStorage.getItem('access_token')
-    }})
-    response.data
-    return 
 }

@@ -57,7 +57,7 @@
 					} 
 				}
 			</script>
-			<button onclick="console.log('lol') & confirmDelete()">Delete</button>
+			<button onclick="confirmDelete()">Delete</button>
 			<form method="POST" action="/records/<%=data._id%>?_method=DELETE" onsubmit="setTimeout(function(){window.location.reload();},30);">
 				<button hidden id="submitDelete" type="submit"></button>
 			</form>

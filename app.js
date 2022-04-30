@@ -49,4 +49,8 @@ app.get("/home", (req, res) => {
 app.get("/lol", (req, res) => {
     res.render("index.ejs", {data : req.data})
 })
+
+app.get("/users/details", async(req, res) => {
+    res.render("detailsUser.ejs")
+})
 server.listen(3000, () => { console.log('listening on 3000') });

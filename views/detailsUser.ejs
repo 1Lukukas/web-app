@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<link>
+	</head>
+	<body onload="details()">
+		<ul class="topnav">
+			<li><a class="active" href="/home">Home</a></li>
+		</ul>
+		<div class="content">
+			<div>
+				<h2>Your details</h2>
+			</div>
+            <div class="parallel">
+                <label for="email">Email</label>
+                <input disabled type="text" id="email" name="email">
+            </div>
+            <div class="parallel">
+                <label for="username">Username</label>
+                <input disabled type="text" id="username" name="username">
+            </div>
+		</div>
+		<button onclick='alert("Coming soon")'>Edit</button>
+		<button><a href="/lol" >Back</button>
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"></script>
+	<script src="../static/detailsUser.js"></script>
+</html>
