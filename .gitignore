@@ -1,3 +1,4 @@
 route.rest
 .env
 node_modules
+coverage

@@ -1,5 +1,4 @@
-
-
+// eslint-disable-next-line no-unused-vars
 async function validateForm(){
     if (document.getElementById("username").value == "" 
     || document.getElementById("email").value == "" 
@@ -13,13 +12,14 @@ async function validateForm(){
 
 async function doesUserExit(){
         
-    response = await axios.get('https://localhost:3000/users/all')
+    // eslint-disable-next-line no-undef
+    const response = await axios.get('https://localhost:3000/users/all')
 
-    usernameExistance = response.data.filter(
+    const usernameExistance = response.data.filter(
         function(data){ return data.username == document.getElementById("username").value}
     )
 
-    emailExistance = response.data.filter(
+    const emailExistance = response.data.filter(
         function(data){ return data.username == document.getElementById("email").value}
     )
     if(emailExistance.length == 0 && usernameExistance.length == 0){
@@ -33,8 +33,8 @@ async function doesUserExit(){
 
 function validatePassword() {
     
-    pass = document.getElementById("password")
-    repass = document.getElementById("repassword")
+    const pass = document.getElementById("password")
+    const repass = document.getElementById("repassword")
     if(pass.value === repass.value) {
         document.getElementById("registerForm").submit()
         alert("Registration successful!")
@@ -44,6 +44,7 @@ function validatePassword() {
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 function showPassword() {
     var x = document.getElementById("password");
     var y = document.getElementById("repassword");
