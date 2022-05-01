@@ -42,12 +42,16 @@ const config = {
     trace: 'on-first-retry',
   },
 
+  
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        contextOptions: {
+          ignoreHTTPSErrors: true,
+        },
       },
     },
 
