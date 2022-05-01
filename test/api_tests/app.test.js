@@ -1,8 +1,8 @@
 require('dotenv').config()
 const request = require('supertest')
-const app = require('../app')(process.env.TEST_DATABASE_URL)
-const User = require('../models/user')
-const Record = require('../models/record')
+const app = require('../../app')(process.env.TEST_DATABASE_URL)
+const User = require('../../models/user')
+const Record = require('../../models/record')
 const mongoose = require('mongoose');
 
 
