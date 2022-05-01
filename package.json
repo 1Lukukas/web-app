@@ -6,6 +6,8 @@
   "scripts": {
     "build": "npx eslint .",
     "test": "jest",
+    "e2e": "npm run testmanager& npx wait-on https://localhost:3000 && npx playwright test",
+    "testmanager": "nodemon -e js,ejs testserver.js",
     "manager": "nodemon -e js,ejs server.js"
   },
   "repository": {
@@ -30,10 +32,13 @@
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.3.1",
-    "supertest": "^6.2.3"
+    "prompt-sync": "^4.2.0",
+    "supertest": "^6.2.3",
+    "wait-on": "^6.0.1"
   },
   "keywords": [],
   "devDependencies": {
+    "@playwright/test": "^1.21.1",
     "dotenv": "^16.0.0",
     "eslint": "^8.14.0",
     "nodemon": "^2.0.16"

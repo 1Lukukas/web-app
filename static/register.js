@@ -20,9 +20,10 @@ async function doesUserExit(){
     )
 
     const emailExistance = response.data.filter(
-        function(data){ return data.username == document.getElementById("email").value}
+        function(data){ return data.email == document.getElementById("email").value}
     )
     if(emailExistance.length == 0 && usernameExistance.length == 0){
+        console.log(emailExistance.length + " " + usernameExistance.length)
         return true;
     } else{
         alert("Username or email already exists")
