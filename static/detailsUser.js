@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 async function details(){
-    response = await axios.get('https://localhost:3000/users/me', 
+    // eslint-disable-next-line no-undef
+    const response = await axios.get('https://localhost:3000/users/me', 
     {headers:{
         'Authorization': "Bearer " + window.localStorage.getItem('access_token')
     }})

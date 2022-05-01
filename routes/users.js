@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
-const env = require('dotenv')
+require('dotenv')
 const jwt = require('jsonwebtoken')
 
-path = require('path')
+const path = require('path')
 router.use('/css', express.static(path.join(__dirname, '/css')))
 router.use('/static', express.static(path.join(__dirname, '/static')))
 
-urlencodedParser = express.urlencoded({extended : false})
+const urlencodedParser = express.urlencoded({extended : false})
 
 router.post('/create', urlencodedParser, async (req, res) => {
     const user = new User({

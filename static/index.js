@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function validateForm() {
     let x = document.forms["myForm"]["amount"].value;
     if (x == "") {
@@ -13,6 +14,7 @@ function confirmDelete() {
 }
 
 async function create(){
+    // eslint-disable-next-line no-undef
     try {await axios.post('https://localhost:3000/records/create2',
       {
       amount: document.getElementById('amount').value,

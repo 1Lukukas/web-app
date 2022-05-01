@@ -32,12 +32,17 @@ jobs:
         mongodb-version: ${{ matrix.mongodb-version }}
 
     - run: npm ci
-    - run: npm run manager --if-present
+    - run: npm run build
   
   test:
   
     runs-on: ubuntu-latest
-    
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        mongodb-version: ['5.0']  
+
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
