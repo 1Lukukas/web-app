@@ -57,5 +57,30 @@ jobs:
         mongodb-version: ${{ matrix.mongodb-version }}
 
     - run: npm ci
-    - run: npm test -- --coverage
-    
+    - run: npm run test test/api_tests -- --coverage
+
+  test_e2e:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        mongodb-version: ['5.0']  
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.7.0
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+        
+    - run: npm ci
+    - run: npx playwright install --with-deps
+    - run: npm run e2e
