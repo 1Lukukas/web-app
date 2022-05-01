@@ -1,11 +1,16 @@
 require('dotenv').config()
-const { response } = require('express')
 const request = require('supertest')
 const app = require('../app')(process.env.TEST_DATABASE_URL)
 const User = require('../models/user')
 const Record = require('../models/record')
+const mongoose = require('mongoose');
+
 
 describe('Test suite', () => {
+
+    afterAll(async () =>{
+        await mongoose.disconnect()
+    })
 
     describe('Users API', () => {
         beforeEach(async () => {
@@ -30,7 +35,7 @@ describe('Test suite', () => {
         });
 
         it('POST /users/create', async () =>{
-            const user = await new User({
+            await new User({
                 email: "test",
                 username: "test",
                 password: "test",
@@ -47,7 +52,7 @@ describe('Test suite', () => {
         })
 
         it('GET /users/me', async () =>{
-            const user = await new User({
+            await new User({
                 email: "test",
                 username: "test",
                 password: "test",
@@ -87,9 +92,8 @@ describe('Test suite', () => {
             await User.deleteMany({})
             await Record.deleteMany({})
         });
-
         it('POST records/create2', async () => {
-            const user = await new User({
+            await new User({
                 email: "test",
                 username: "test",
                 password: "test",
@@ -111,7 +115,7 @@ describe('Test suite', () => {
         })
 
         it('GET records/all2', async () =>{
-            const user = await new User({
+            await new User({
                 email: "test",
                 username: "test",
                 password: "test",

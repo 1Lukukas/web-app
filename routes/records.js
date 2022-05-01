@@ -2,13 +2,13 @@ const express = require('express')
 const router = express.Router()
 const Record = require('../models/record')
 const User = require('../models/user')
-const { authenticateToken, authenticationHeader } = require('./users')
+const { authenticateToken} = require('./users')
 
-path = require('path')
+const path = require('path')
 router.use('/css', express.static(path.join(__dirname, '/css')))
 router.use('/static', express.static(path.join(__dirname, '/static')))
 
-urlencodedParser = express.urlencoded({extended : false})
+const urlencodedParser = express.urlencoded({extended : false})
 // Getting all
 
 router.get('/all2', authenticateToken, async (req, res) => {
@@ -72,8 +72,8 @@ router.post('/create2', urlencodedParser, authenticateToken, async (req, res) =>
   });
 
   try {
-    newRecord = await record.save()
-    temp = user[0].records
+    const newRecord = await record.save()
+    let temp = user[0].records
     temp.push(newRecord)
     user[0].records = temp
     await user[0].save()

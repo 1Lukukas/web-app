@@ -20,7 +20,7 @@ module.exports = (database) =>{
     const recordsRouter = require('./routes/records')
     app.use('/records', recordsRouter)
 
-    path = require('path')
+    const path = require('path')
     app.use('/css', express.static(path.join(__dirname, '/css')));
     app.use("/static", express.static('./static/'));
 

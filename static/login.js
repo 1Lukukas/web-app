@@ -1,5 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 async function login() {
+	let username
+	// eslint-disable-next-line no-cond-assign
 	if (username = await validateForm()) {
+		// eslint-disable-next-line no-undef
 		const response = await axios.post('https://localhost:3000/users/login', {
 			username: username
 		})
@@ -9,9 +13,11 @@ async function login() {
 }
 
 async function validateForm() {
+	let username
 	if (document.getElementById("login").value == "" ||
 		document.getElementById("password").value == "") {
 		alert("All fields must be filled out");
+	// eslint-disable-next-line no-cond-assign
 	} else if (username = await validateLogin()) {
         return username
 	}
@@ -20,7 +26,9 @@ async function validateForm() {
 
 async function validateLogin() {
 
-	response = await axios.get('https://localhost:3000/users/all')
+	// eslint-disable-next-line no-undef
+	const response = await axios.get('https://localhost:3000/users/all')
+	let loginExistance
 	if(document.getElementById('login').type == "text"){
 		loginExistance = response.data.filter(
 			function(data) {
@@ -35,7 +43,7 @@ async function validateLogin() {
 			}
 		)
 	}
-    password = document.getElementById("password").value
+    const password = document.getElementById("password").value
 	if (loginExistance.length == 0 || loginExistance[0].password != password) {
 		alert(`${document.getElementById('loginLabel').innerHTML} or password wrong`)
 		return false;
