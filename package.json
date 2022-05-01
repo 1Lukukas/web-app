@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx eslint .",
     "test": "jest",
-    "e2e" : "npm run manager& npx wait-on https://localhost:3000 && npx playwright test",
+    "e2e": "npm run testmanager& npx wait-on https://localhost:3000 && npx playwright test",
+    "testmanager": "nodemon -e js,ejs testserver.js",
     "manager": "nodemon -e js,ejs server.js"
   },
   "repository": {

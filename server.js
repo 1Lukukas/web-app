@@ -1,6 +1,6 @@
 require('dotenv').config()
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-const app = require('./app')(process.env.DATABASE_URL)
+const app = require('./app')(process.env.WIN_DATABASE_URL)
 const https = require('https');
 const fs = require('fs');
 const key = fs.readFileSync('key.pem');
