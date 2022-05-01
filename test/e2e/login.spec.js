@@ -7,7 +7,7 @@ const User = require('../../models/user');
 test.describe('basic test', () => {
 
   test.beforeAll(async() => {
-    mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
+    mongoose.connect(process.env.TEST_DATABASE_URL, { useNewUrlParser: true })
     const db = mongoose.connection
     db.on('error', (error) => console.error(error))
     db.once('open', () => console.log('Connected to Database'))

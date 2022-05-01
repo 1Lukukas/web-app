@@ -88,11 +88,34 @@ test.describe('Registration', () => {
       expect(text).toBe("Passwords do not match")
     })
 
-    test('user already exists', async ({ page }) =>{
+    test('username already exists', async ({ page }) =>{
+      await page.locator('input[name="email"]').click();
+      await page.locator('input[name="email"]').fill('b');
+      await page.locator('input[name="username"]').click();
+      await page.locator('input[name="username"]').fill('d');
+      await page.locator('input[name="password"]').click();
+      await page.locator('input[name="password"]').fill('password');
+      await page.locator('input[name="repassword"]').click();
+      await page.locator('input[name="repassword"]').fill('password');
+
+      let dialogPromise;
+      let text;
+      await Promise.all([
+      dialogPromise = page.waitForEvent('dialog').then(async (dialog) => {
+        dialog.accept()
+        return dialog.message();
+      }),
+      page.locator('button:has-text("Register")').click(),
+      text = await dialogPromise
+    ])
+      expect(text).toBe("Username or email already exists")
+    })
+    
+    test('email already exists', async ({ page }) =>{
       await page.locator('input[name="email"]').click();
       await page.locator('input[name="email"]').fill('a');
       await page.locator('input[name="username"]').click();
-      await page.locator('input[name="username"]').fill('d');
+      await page.locator('input[name="username"]').fill('c');
       await page.locator('input[name="password"]').click();
       await page.locator('input[name="password"]').fill('password');
       await page.locator('input[name="repassword"]').click();
