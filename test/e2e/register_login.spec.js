@@ -26,9 +26,9 @@ test.describe('Test suite', () =>{
 
       test.beforeAll(async () =>{
         await new User({
-          email: "email",
-          username: "username",
-          password: "password",
+          email: "email123",
+          username: "username123",
+          password: "password123",
         }).save()
       })
       test.afterAll(async() => {
@@ -100,7 +100,7 @@ test.describe('Test suite', () =>{
         await page.locator('input[name="email"]').click();
         await page.locator('input[name="email"]').fill('emailo');
         await page.locator('input[name="username"]').click();
-        await page.locator('input[name="username"]').fill('username');
+        await page.locator('input[name="username"]').fill('username123');
         await page.locator('input[name="password"]').click();
         await page.locator('input[name="password"]').fill('password');
         await page.locator('input[name="repassword"]').click();
@@ -121,7 +121,7 @@ test.describe('Test suite', () =>{
       
       test('email already exists', async ({ page }) =>{
         await page.locator('input[name="email"]').click();
-        await page.locator('input[name="email"]').fill('email');
+        await page.locator('input[name="email"]').fill('email123');
         await page.locator('input[name="username"]').click();
         await page.locator('input[name="username"]').fill('usernameo');
         await page.locator('input[name="password"]').click();
@@ -149,7 +149,7 @@ test.describe('Test suite', () =>{
       await new User({
         email: "email",
         username: "username",
-        password: "password",
+        password: "test"
       }).save()
 
     })
