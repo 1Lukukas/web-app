@@ -12,6 +12,7 @@ urlencodedParser = express.urlencoded({extended : false})
 const cookieParser = require('cookie-parser');
 router.use(cookieParser());
 // Getting all
+
 router.get('/all2', authenticateToken, async (req, res) => {
   try {
     let records = await Record.find()
